@@ -17,7 +17,7 @@ export class WirdService {
   }
 
   findAll() {
-    return this.wirdModel.find().populate('dhikrs');
+    return this.wirdModel.find().populate('dhikrs.dhikr');
   }
 
   findOne(id: number) {

@@ -1,21 +1,23 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Types } from 'mongoose';
+import { DhikrDistrbution } from 'src/dhikr/schemas/dhikr-distribution.schema';
 import { Dhikr } from 'src/dhikr/schemas/dhikr.schema';
 
 @Schema({
   timestamps: true,
 })
 export class Wird {
-  @Prop()
+  @Prop({ type: String, required: true })
   name: string;
 
-  @Prop()
+  @Prop({ type: String })
   note: string;
 
   @Prop({
-    ref: Dhikr.name,
+    type: [{ dhikr: { type: Types.ObjectId, ref: Dhikr.name }, count: Number }],
+    _id: false,
   })
-  dhikrs: Types.ObjectId[];
+  dhikrs: DhikrDistrbution[];
 }
 
 export const WirdSchema = SchemaFactory.createForClass(Wird);

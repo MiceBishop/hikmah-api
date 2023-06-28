@@ -10,16 +10,16 @@ enum DhikrStatus {
   timestamps: true,
 })
 export class Dhikr {
-  @Prop()
+  @Prop({ type: String, required: true })
   name: string;
 
-  @Prop()
+  @Prop({ type: String })
   transcription: string;
 
-  @Prop()
+  @Prop({ type: String })
   note: string;
 
-  @Prop()
+  @Prop({ type: String })
   status: DhikrStatus;
 }
 
