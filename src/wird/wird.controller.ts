@@ -12,7 +12,7 @@ import { CreateWirdDto } from './dto/create-wird.dto';
 import { UpdateWirdDto } from './dto/update-wird.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Wird')
+@ApiTags('wird')
 @Controller('wird')
 export class WirdController {
   constructor(private readonly wirdService: WirdService) {}
@@ -29,16 +29,16 @@ export class WirdController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.wirdService.findOne(+id);
+    return this.wirdService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateWirdDto: UpdateWirdDto) {
-    return this.wirdService.update(+id, updateWirdDto);
+    return this.wirdService.update(id, updateWirdDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.wirdService.remove(+id);
+    return this.wirdService.remove(id);
   }
 }

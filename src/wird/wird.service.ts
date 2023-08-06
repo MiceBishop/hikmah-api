@@ -17,18 +17,20 @@ export class WirdService {
   }
 
   findAll() {
-    return this.wirdModel.find().populate('dhikrs.dhikr');
+    return this.wirdModel
+      .find()
+      .populate(['dhikrs.dhikr', 'talibes.talibe', 'createdBy']);
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.wirdModel.findOne({ _id: id });
   }
 
-  update(id: number, updateWirdDto: UpdateWirdDto) {
+  update(id: string, updateWirdDto: UpdateWirdDto) {
     return this.wirdModel.findOneAndUpdate({ _id: id }, updateWirdDto);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.wirdModel.findByIdAndRemove({ _id: id });
   }
 }

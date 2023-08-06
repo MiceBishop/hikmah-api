@@ -1,4 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
+import { Talibe } from 'src/talibe/schemas/talibe.schema';
 
 enum DhikrStatus {
   Draft = 'draft',
@@ -21,6 +23,9 @@ export class Dhikr {
 
   @Prop({ type: String })
   status: DhikrStatus;
+
+  @Prop({ type: Types.ObjectId, ref: Talibe.name })
+  createdBy: string;
 }
 
 export const DhikrSchema = SchemaFactory.createForClass(Dhikr);

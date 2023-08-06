@@ -3,19 +3,13 @@ import { Types } from 'mongoose';
 import { Dhikr } from './dhikr.schema';
 
 @Schema({
-  timestamps: true,
   _id: false,
 })
 export class DhikrDistrbution {
-  @Prop({
-    type: Types.ObjectId,
-    ref: Dhikr.name,
-  })
+  @Prop({ type: Types.ObjectId, ref: Dhikr.name, required: true })
   dhikr: Types.ObjectId;
 
-  @Prop({
-    type: Number,
-  })
+  @Prop({ type: Number, required: true })
   count: number;
 }
 

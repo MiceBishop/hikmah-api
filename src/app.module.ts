@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DhikrModule } from './dhikr/dhikr.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { WirdModule } from './wird/wird.module';
+import { TalibeModule } from './talibe/talibe.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { WirdModule } from './wird/wird.module';
     MongooseModule.forRoot(process.env.DB_URI),
     DhikrModule,
     WirdModule,
+    TalibeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
